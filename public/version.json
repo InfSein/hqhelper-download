@@ -1,0 +1,22 @@
+{
+  "electron": "v7",
+  "android": "v1",
+  "download_link": {
+    "electron_win": "~PROXYhttps://github.com/InfSein/hqhelper-client/releases/latest/download/HqHelper.WinSetup.exe",
+    "electron_mac": "~PROXYhttps://github.com/InfSein/hqhelper-client/releases/latest/download/HqHelper.Mac.dmg",
+    "android": "~PROXYhttps://github.com/InfSein/hqhelper-android/releases/latest/download/HqHelper.apk"
+  },
+  "recomm_proxy": "https://ghfast.top/",
+  "client_info": {
+    "win_sub_links": [
+      "https://share.weiyun.com/OsHdwXSC"
+    ],
+    "mac_sub_links": [
+      "https://share.weiyun.com/kFYhSQPm"
+    ],
+    "android_sub_links": [
+      "https://share.weiyun.com/qXflkAUz"
+    ]
+  },
+  "maintenancing": false
+}
