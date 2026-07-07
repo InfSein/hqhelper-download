@@ -84,8 +84,8 @@ export const translations = {
     description:
       'HqHelper のほとんどの機能はウェブブラウザ上で利用可能です。しかし、一部のユーザーの習慣に対応し、ブラウザでは実現できない機能を提供するために、クライアントサービスも提供しています。',
     feature1: 'インターネット接続なしで基礎計算サービスを利用可能',
-    feature2: '収集クロックウィンドウの最前面表示（Windows・macOS限定）',
-    feature3: 'ワークフローを単独のウィンドウで開く推奨プロセス（Windows・macOS限定）',
+    feature2: '採集時計の最上部表示（Windows・macOS限定）',
+    feature3: 'ワークフローの推奨回しを単独のウィンドウで開く（Windows・macOS限定）',
     footerNote1:
       '今後のアップデートのためにこのページをブックマークしてください。',
     footerNote2:
