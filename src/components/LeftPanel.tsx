@@ -17,8 +17,8 @@ export function LeftPanel({ lang, theme, t, isMaintenance, onLangChange, onTheme
   return (
     <div className="w-full md:w-5/12 lg:w-1/2 md:h-full md:overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col justify-between border-b md:border-b-0 md:border-r border-stone-200 dark:border-stone-800 shrink-0">
       <div>
-        {/* Top bar: brand + controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-16">
+        {/* Top bar: brand + controls — hidden on mobile (MobileTopBar handles mobile) */}
+        <div className="hidden md:flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-16">
           <div className="flex items-center select-none">
             <svg className="w-8 h-8 fill-stone-900 dark:fill-stone-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1380 1000 2000">
               <path d="M616 720Q716 719 800 678Q885 638 944 567Q886 689 774 763Q662 837 518 839Q318 834 185 701Q52 568 47 368Q50 197 152 73Q253 -51 414 -90Q423 -94 433 -96Q443 -99 454 -101Q419 -75 399 -37Q378 2 378 47Q380 126 432 179Q485 232 564 234Q643 232 696 179Q748 126 750 47Q750 47 750 46Q763 72 769 101Q776 130 776 161Q773 276 697 351Q622 427 507 430Q393 427 318 351Q242 276 239 161Q239 129 246 98Q253 68 267 41Q229 94 208 157Q187 220 187 290Q192 473 313 594Q434 715 616 720Z" transform="scale(1,-1)" />
@@ -79,7 +79,7 @@ export function LeftPanel({ lang, theme, t, isMaintenance, onLangChange, onTheme
       </div>
 
       {/* Footer area */}
-      <div className="mt-16 space-y-6">
+      <div className="mt-12 md:mt-16 space-y-6">
         {isMaintenance && (
           <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex items-start gap-3">
             <Lock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />

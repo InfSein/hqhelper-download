@@ -40,6 +40,7 @@ export const translations = {
     light: '浅色模式',
     dark: '深色模式',
     selectLang: '语言选择',
+    themeLabel: '主题',
   },
   en: {
     pageTitle: 'HqHelper Client Download',
@@ -76,6 +77,7 @@ export const translations = {
     light: 'Light',
     dark: 'Dark',
     selectLang: 'Language',
+    themeLabel: 'Theme',
   },
   ja: {
     pageTitle: 'HqHelperクライアントダウンロード',
@@ -112,6 +114,7 @@ export const translations = {
     light: 'ライト',
     dark: 'ダーク',
     selectLang: '言語',
+    themeLabel: 'テーマ',
   },
 } as const
 

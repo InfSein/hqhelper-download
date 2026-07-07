@@ -28,9 +28,9 @@ export function DownloadLinks({ links, maintenanceTitle, isMaintenance }: Downlo
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`py-2.5 px-4 rounded-xl text-center text-sm font-medium transition-colors flex items-center justify-center gap-1.5 ${
+          className={`w-full md:w-auto py-2.5 px-4 rounded-xl text-center text-sm font-medium transition-colors flex items-center justify-center gap-1.5 ${
             link.isPrimary
-              ? 'bg-stone-900 hover:bg-stone-800 text-stone-50 dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 shadow-sm flex-1'
+              ? 'bg-stone-900 hover:bg-stone-800 text-stone-50 dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 shadow-sm md:flex-1'
               : 'border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800'
           }`}
         >

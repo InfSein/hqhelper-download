@@ -11,8 +11,14 @@
 /* Custom transitions and scroll behaviors */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: clip;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }

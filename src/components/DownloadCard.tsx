@@ -66,7 +66,7 @@ export function DownloadCard({
       <p className="text-stone-500 dark:text-stone-400 text-sm mb-6">{description}</p>
 
       {/* Download buttons */}
-      <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-2.5">
         <DownloadLinks
           links={links}
           isMaintenance={isMaintenance}

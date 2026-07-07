@@ -6,6 +6,7 @@ import { useTheme } from './hooks/useTheme'
 import { useVersionInfo } from './hooks/useVersionInfo'
 import { LeftPanel } from './components/LeftPanel'
 import { RightPanel } from './components/RightPanel'
+import { MobileTopBar } from './components/MobileTopBar'
 
 function App() {
   const { lang, changeLanguage } = useLanguage()
@@ -37,7 +38,16 @@ function App() {
   }
 
   return (
-    <div className="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 flex flex-col md:flex-row md:h-dvh antialiased">
+    <div className="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 flex flex-col md:flex-row md:h-dvh antialiased overflow-x-clip">
+      {/* Mobile sticky top bar */}
+      <MobileTopBar
+        lang={lang}
+        theme={theme}
+        t={t}
+        onLangChange={changeLanguage}
+        onThemeChange={changeTheme}
+      />
+
       <LeftPanel
         lang={lang}
         theme={theme}
