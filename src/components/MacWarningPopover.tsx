@@ -10,14 +10,13 @@ interface MacWarningPopoverProps {
 /** On desktop: hover-triggered popover. On mobile: tap-triggered bottom drawer. */
 export function MacWarningPopover({ title, warning, viewFix }: MacWarningPopoverProps) {
   const [open, setOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 767px)').matches)
   const ref = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<number | null>(null)
 
   // Detect mobile breakpoint (< 768px = md)
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)')
-    setIsMobile(mq.matches)
     const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches)
     mq.addEventListener('change', listener)
     return () => mq.removeEventListener('change', listener)
