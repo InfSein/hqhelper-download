@@ -1,26 +1,17 @@
 import { useState } from 'react'
 import type { LangType } from '../types'
+import { detectInitialLang, setSavedLanguage, setIsInited } from '../utils/userConfig'
 
-const STORAGE_KEY = 'hqhelper_lang'
-const VALID: LangType[] = ['zh', 'en', 'ja']
-
-function detectInitialLang(): LangType {
-  const saved = localStorage.getItem(STORAGE_KEY) as LangType
-  if (saved && VALID.includes(saved)) return saved
-  const nav = navigator.language.toLowerCase()
-  if (nav.startsWith('zh')) return 'zh'
-  if (nav.startsWith('ja')) return 'ja'
-  return 'en'
-}
-
-/** Manages the current language and persists the selection to localStorage. */
+/** 管理当前语言并持久化到本地存储，用户手动修改时将 inited 设为 true */
 export function useLanguage() {
   const [lang, setLang] = useState<LangType>(detectInitialLang)
 
   const changeLanguage = (newLang: LangType) => {
     setLang(newLang)
-    localStorage.setItem(STORAGE_KEY, newLang)
+    setSavedLanguage(newLang)
+    setIsInited(true)
   }
 
   return { lang, changeLanguage }
 }
+

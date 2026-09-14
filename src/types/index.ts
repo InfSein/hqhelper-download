@@ -27,6 +27,12 @@ export type LangType = 'zh' | 'en' | 'ja'
 export type ThemeType = 'light' | 'dark' | 'system'
 export type Platform = 'win' | 'mac' | 'android'
 
+export interface UserConfig {
+  lang: LangType
+  theme: ThemeType
+  inited: boolean
+}
+
 export interface DownloadLinkItem {
   label: string
   url: string

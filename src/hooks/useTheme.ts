@@ -1,44 +1,39 @@
 import { useState, useEffect } from 'react'
 import type { ThemeType } from '../types'
+import {
+  applyTheme,
+  getSavedTheme,
+  setSavedTheme,
+  setIsInited,
+} from '../utils/userConfig'
 
-const STORAGE_KEY = 'hqhelper_theme'
-const VALID: ThemeType[] = ['light', 'dark', 'system']
-
-function applyTheme(theme: ThemeType) {
-  const root = window.document.documentElement
-  root.classList.remove('light', 'dark')
-  if (theme === 'system') {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    root.classList.add(prefersDark ? 'dark' : 'light')
-  } else {
-    root.classList.add(theme)
-  }
-}
-
-/** Manages the current theme, applies it to <html>, and persists to localStorage. */
+/** 管理当前主题，应用到 <html> 并持久化到本地存储，用户手动修改时将 inited 设为 true */
 export function useTheme() {
   const [theme, setTheme] = useState<ThemeType>(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as ThemeType
-    return saved && VALID.includes(saved) ? saved : 'system'
+    return getSavedTheme() ?? 'system'
   })
 
-  // Apply theme class whenever theme changes
+  // 当 theme 改变时应用样式类名
   useEffect(() => {
     applyTheme(theme)
   }, [theme])
 
-  // Re-apply when the OS preference changes (only matters in 'system' mode)
+  // 监听系统深浅色偏好变化（仅在 system 模式下生效）
   useEffect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const handler = () => { if (theme === 'system') applyTheme('system') }
+    const handler = () => {
+      if (theme === 'system') applyTheme('system')
+    }
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
   }, [theme])
 
   const changeTheme = (newTheme: ThemeType) => {
     setTheme(newTheme)
-    localStorage.setItem(STORAGE_KEY, newTheme)
+    setSavedTheme(newTheme)
+    setIsInited(true)
   }
 
   return { theme, changeTheme }
 }
+
